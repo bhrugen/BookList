@@ -21,6 +21,25 @@ namespace BookList.Controllers
             return View(_db.Books.ToList());
         }
 
+        //Get : Book/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(Book book)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Add(book);
+                await _db.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(book);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

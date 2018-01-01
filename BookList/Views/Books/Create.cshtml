@@ -1,0 +1,32 @@
+﻿@model BookList.Models.Book
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<br />
+<h2>Add new book</h2>
+<hr />
+
+<form asp-action="Create">
+    <div class="row form-border">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-1">
+                    <label asp-for="Name"></label>
+                </div>
+                <div class="col-sm-4">
+                    <input asp-for="Name" class="form-control" />
+                </div>
+            </div>
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <br />
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-sm btn-primary" />
+            <input type="submit" asp-action="Index" value="Back to List" class="btn btn-sm btn-success" />
+        </div>
+    </div>
+</form>
+

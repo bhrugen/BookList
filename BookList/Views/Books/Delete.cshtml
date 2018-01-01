@@ -1,0 +1,30 @@
+﻿@model BookList.Models.Book
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<br />
+<h2>Delete book</h2>
+<hr />
+
+<form asp-action="Delete">
+    <div class="row form-border">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-1">
+                    <label asp-for="Name"></label>
+                </div>
+                <div class="col-sm-4">
+                    <input asp-for="Name" disabled class="form-control" />
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <input type="submit" value="Delete" class="btn btn-sm btn-danger" />
+            <input type="submit" asp-action="Index" value="Back to List" class="btn btn-sm btn-success" />
+        </div>
+    </div>
+</form>
+
